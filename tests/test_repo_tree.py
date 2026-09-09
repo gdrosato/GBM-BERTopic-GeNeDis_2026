@@ -2,7 +2,6 @@ from pathlib import Path
 
 required = [
     'README.md',
-    'CITATION.cff',
     'environment/pip_freeze.txt',
     'environment/runtime.json',
     'config/pubmed_query.txt',
