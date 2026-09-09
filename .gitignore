@@ -1,0 +1,69 @@
+# Python / editors
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+.idea/
+.vscode/
+
+# Raw or parsed PubMed / abstract-bearing data
+*.xml
+*.xml.gz
+*.nbib
+*.ris
+glioblastoma_pubmed.csv
+glioblastoma_pubmed.parquet
+glioblastoma_analysis_corpus.csv
+glioblastoma_analysis_corpus.parquet
+glioblastoma_analysis_corpus_with_tokens.parquet
+data/raw/*
+!data/raw/README.md
+
+# Large generated intermediates/models
+embeddings/
+bertopic_baseline/
+hdbscan_tuning/
+bertopic_candidate_b/
+topic_validation/
+final_figures_curated/
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.joblib
+*.safetensors
+
+# Manuscript / submission files intentionally excluded
+*.tex
+*.bib
+*.bbl
+*.blg
+*.aux
+*.log
+*.toc
+*.synctex.gz
+manuscript/
+submission/
+
+# Local QC outputs generated during full reruns
+papers_per_year.csv
+publication_types.csv
+possible_duplicate_titles.csv
+short_abstracts_under_50_words.csv
+excluded_publication_types.csv
+short_abstracts_after_filtering.csv
+exact_duplicate_documents.csv
+duplicate_dois.csv
+longest_abstracts.csv
+papers_per_year_after_filtering.csv
+documents_over_512_tokens.csv
+
+# Local secrets / credentials
+.env
+.env.*
+*.env
+.ncbi_api_key
+secrets/
