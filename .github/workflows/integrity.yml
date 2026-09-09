@@ -15,3 +15,5 @@ jobs:
       - run: python -m compileall -q scripts tests
       - run: python tests/test_repo_tree.py
       - run: python tests/test_validation_workbook.py
+      - run: python tests/test_temporal_outputs.py
+      - run: python tests/test_corpus_manifests.py
