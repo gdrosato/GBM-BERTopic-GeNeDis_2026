@@ -5,7 +5,6 @@ required = [
     'environment/runtime.json',
     'config/pubmed_query.txt',
     'config/analysis_parameters.yaml',
-    'CITATION.cff',
     'scripts/download_pubmed_edirect.sh',
     'scripts/pubmed_parser.py',
     'scripts/dataset_qc.py',
