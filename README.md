@@ -114,7 +114,7 @@ If you use this repo in a scientific publication, we would appreciate using the 
 
 - Pouliliou, S. and Drosatos, G. (2026). AI-Driven Mapping of the Hypoxia--Metabolism--Immune Landscape in Glioblastoma: A BERTopic-Based Analysis of the Biomedical Literature. In GeNeDIS 2026, pages 1-15, AEMB Vol. xxxx, Springer.
 
-and as BibTeX:
+and as BibTeX: 
 
 ```
 @InProceedings{Pouliliou_GBM_2026,
