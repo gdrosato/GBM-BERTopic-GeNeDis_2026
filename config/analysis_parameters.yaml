@@ -1,6 +1,7 @@
 study:
-  title: "AI-Driven Mapping of the Hypoxia–Metabolism–Immune Landscape in Glioblastoma"
+  title: "AI-Driven Mapping of Hypoxia, Metabolism, Immunity, and Treatment Resistance in Glioblastoma: A BERTopic-Based Analysis of the Biomedical Literature"
   analysis_date: "2026-09-09"
+  repository_version: "1.1.0"
 
 pubmed:
   retrieval_date: "2026-08-27"
@@ -47,7 +48,7 @@ bertopic:
 
 validation:
   candidate_topics: 77
-  strict_included: 41
+  expert_retained: 41
   borderline: 12
   excluded: 24
   coherence_mean: 4.73
@@ -56,10 +57,24 @@ validation:
   relevance_median: 4.0
   relevance_ge_4: 38
 
-temporal_analysis:
-  primary_start_year: 2011
-  primary_end_year: 2025
+primary_temporal_analysis:
+  start_year: 2011
+  end_year: 2025
+  axis_definition: "expert primary label only"
+  axis_topic_counts:
+    hypoxia_angiogenesis: 2
+    metabolism_stress: 3
+    immune_tumor_microenvironment: 6
+    treatment_resistance: 12
   denominator: "all eligible GBM publications per year, including HDBSCAN outliers"
-  visualization: "centered 3-year rolling mean"
+  visualization: "centered 3-year rolling mean with raw annual points"
   inference: "Spearman correlation on unsmoothed annual prevalence"
-  correction: "Benjamini-Hochberg within each family of four tests"
+  correction: "Benjamini-Hochberg across four primary axis tests"
+
+sensitivity_analyses:
+  axis_definition:
+    comparison: "primary labels versus primary + secondary expert labels"
+    correction: "Benjamini-Hochberg separately within four expanded-axis tests"
+  denominator:
+    comparison: "all eligible GBM publications versus clustered publications only"
+    result: "all four axes preserved trend direction and significance/non-significance status"
