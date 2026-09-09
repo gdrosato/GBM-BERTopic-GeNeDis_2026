@@ -1,30 +1,32 @@
 # GBM BERTopic — GeNeDis 2026 reproducibility repository
 
-Code, expert annotation, aggregate results, and figures supporting the study:
+Code, expert curation, aggregate results, and figures supporting the study:
 
-**AI-Driven Mapping of the Hypoxia–Metabolism–Immune Landscape in Glioblastoma: A BERTopic-Based Analysis of the Biomedical Literature**
+**AI-Driven Mapping of Hypoxia, Metabolism, Immunity, and Treatment Resistance in Glioblastoma: A BERTopic-Based Analysis of the Biomedical Literature**
 
 Authors: **Stamatia Pouliliou** and **George Drosatos**
 
-## Scope of this repository
+The repository is maintained privately during manuscript review and is intended for public release following acceptance.
 
-This public repository intentionally contains:
+## Scope
+
+This repository contains:
 
 - the Python scripts used in the analysis workflow;
 - the exact PubMed query and analysis parameters;
+- PMID-only manifests identifying the exact historical retrieval and final modeling corpus;
 - the exact Python/package/runtime environment export;
-- the curated domain-expert topic-validation workbook;
-- aggregate derived CSV/JSON outputs used for validation and temporal analysis;
-- final main and supplementary figures.
+- the curated domain-expert topic-annotation workbook;
+- aggregate derived CSV/JSON/TXT outputs used for validation and temporal analysis;
+- final main and supplementary figures;
+- lightweight repository-integrity tests.
 
 It intentionally **does not contain**:
 
 - the PubMed XML/XML.GZ export or article abstracts;
 - parsed title–abstract corpora or embedding matrices;
-- BERTopic pickle/model binaries;
-- the manuscript source, LaTeX, BibTeX, or compiled manuscript PDF.
-
-This separation keeps the repository focused on reproducible analysis code and author-generated/aggregate outputs while avoiding redistribution of abstract-bearing PubMed data and manuscript files.
+- BERTopic/UMAP/HDBSCAN model binaries;
+- manuscript source, LaTeX, BibTeX, or compiled manuscript PDF.
 
 ## Key results
 
@@ -34,21 +36,40 @@ This separation keeps the repository focused on reproducible analysis code and a
 - BERTopic topics: **110**
 - Clustered publications: **35,188**
 - HDBSCAN outliers: **18,862 (34.90%)**
-- Candidate topics for expert review: **77**
-- Strict expert-included topics: **41**
+- Algorithmically prioritized topics for expert review: **77**
+- Expert-retained topics: **41**
+
+### Primary temporal analysis, 2011–2025
+
+Axis membership is defined from the **expert primary label only**:
+
+| Axis | Topics | Spearman rho | BH q | Interpretation |
+|---|---:|---:|---:|---|
+| Hypoxia / angiogenesis | 2 | -0.814 | 0.0003 | significant decrease |
+| Metabolism / stress | 3 | 0.843 | 0.0002 | significant increase |
+| Immune / tumor microenvironment | 6 | 0.868 | 0.0001 | significant increase |
+| Treatment resistance | 12 | -0.443 | 0.0983 | negative, non-significant |
+
+Two robustness analyses are included:
+
+1. **Axis-definition sensitivity:** primary labels versus primary + secondary expert labels.
+2. **Denominator sensitivity:** all eligible GBM publications versus clustered publications only.
+
+All four primary axes preserved trend direction and significance/non-significance status under the clustered-only denominator. The immune/TME and hypoxia/angiogenesis findings were also robust to the broader axis definition; metabolism was attenuated under the broader definition, and treatment-resistance direction depended on axis composition while remaining non-significant.
 
 ## Repository structure
 
 ```text
 .
-├── config/                 Exact PubMed query and model parameters
-├── scripts/                Analysis and data-retrieval scripts
+├── config/                 Exact PubMed query and model/analysis parameters
+├── scripts/                Retrieval, analysis, curation, and sensitivity scripts
 ├── environment/            Exact Python/pip/runtime snapshot
 ├── data/
 │   ├── raw/                Documentation only; no raw PubMed data committed
+│   ├── manifests/          PMID-only manifests for the exact historical corpora
 │   ├── validation/         Curated expert annotation workbook
-│   └── derived/            Aggregate validation/temporal outputs
-├── results/figures/        Main and supplementary publication figures
+│   └── derived/            Aggregate validation/temporal/sensitivity outputs
+├── results/figures/        Main and supplementary figures
 ├── docs/                   Pipeline, provenance, codebook, data policy
 ├── tests/                  Lightweight integrity checks
 └── .github/workflows/      GitHub Actions integrity CI
@@ -70,69 +91,71 @@ Core runtime:
 - UMAP **0.5.12**
 - HDBSCAN **0.8.44**
 
-For the complete package snapshot see `environment/pip_freeze.txt`.
+See `environment/pip_freeze.txt` for the complete package snapshot.
 
 ## Reproducing the analysis
 
-The repository does not redistribute the raw PubMed export. Recreate it locally with the exact study query and NCBI EDirect. Full installation, API-key, download, compression, and PMID-verification instructions are provided in:
+The raw PubMed export is not redistributed. Recreate it locally with the exact study query and NCBI EDirect. Full instructions are provided in [`docs/PUBMED_RETRIEVAL.md`](docs/PUBMED_RETRIEVAL.md).
 
-[`docs/PUBMED_RETRIEVAL.md`](docs/PUBMED_RETRIEVAL.md)
-
-For an automated download using the repository query:
+For automated retrieval using the repository query:
 
 ```bash
 bash scripts/download_pubmed_edirect.sh
 ```
 
-The historical XML dataset used for analysis contained **55,446 unique PMIDs**. PubMed is a live database, so later reruns may differ slightly because of retrospective record/indexing changes.
+The historical XML dataset used for analysis contained **55,446 unique PMIDs**. PubMed is a live database, so later reruns may differ slightly because of retrospective indexing or record changes. To preserve the exact historical study population, this repository includes PMID-only manifests:
+
+- [`data/manifests/retrieved_pmids_2026-08-27.txt`](data/manifests/retrieved_pmids_2026-08-27.txt) — 55,446 PMIDs in the retrieved PubMed dataset.
+- [`data/manifests/final_corpus_pmids.txt`](data/manifests/final_corpus_pmids.txt) — 54,050 PMIDs used for embedding and topic modeling.
+
+These files contain identifiers only; they do not redistribute article titles, abstracts, or raw PubMed records. See [`data/manifests/README.md`](data/manifests/README.md) for provenance and fingerprints.
 
 Then follow [`docs/PIPELINE.md`](docs/PIPELINE.md).
 
-## Expert validation
+## Expert curation
 
 The final curated workbook is:
 
 `data/validation/topic_validation_workbook_2026-09-09.xlsx`
 
-It is the final source of truth for the expert classification used by the downstream figure/temporal script.
+It is the source of truth for expert inclusion status, primary labels, secondary labels, coherence ratings, relevance ratings, and biological rationale.
+
+## Final figures
+
+Main figures:
+
+- `results/figures/main/figure_topic_landscape.pdf`
+- `results/figures/main/figure_temporal_axes_primary.pdf`
+
+Selected supplementary/reproducibility figures include the expanded axis-definition sensitivity analysis, sentinel-topic trajectories, validation summaries, and outlier-rate QC.
 
 ## Data-distribution policy
 
-The raw PubMed export and parsed abstract-bearing corpora are not included. See [`docs/DATA_POLICY.md`](docs/DATA_POLICY.md).
+The raw PubMed export and parsed abstract-bearing corpora are not included. PMID-only corpus manifests are included to identify the exact historical retrieval and final modeling corpus without redistributing abstract text. See [`docs/DATA_POLICY.md`](docs/DATA_POLICY.md).
 
 ## Integrity
 
 ```bash
+make check
+```
+
+or run the tests individually:
+
+```bash
 python tests/test_repo_tree.py
 python tests/test_validation_workbook.py
+python tests/test_temporal_outputs.py
+python tests/test_corpus_manifests.py
 ```
 
 ## Citation
 
-If you use this repo in a scientific publication, we would appreciate using the following citation:
+Final publication metadata will be added after acceptance/publication. Until then, the repository can be cited as:
 
-- Pouliliou, S. and Drosatos, G. (2026). AI-Driven Mapping of the Hypoxia--Metabolism--Immune Landscape in Glioblastoma: A BERTopic-Based Analysis of the Biomedical Literature. In GeNeDIS 2026, pages 1-15, AEMB Vol. xxxx, Springer.
+> Pouliliou S, Drosatos G. GBM-BERTopic-GeNeDis_2026: reproducibility repository for AI-driven mapping of hypoxia, metabolism, immunity, and treatment resistance in the glioblastoma literature. 2026.
 
-and as BibTeX:
+See `CITATION.cff` for machine-readable citation metadata.
 
-```
-@InProceedings{Pouliliou_GBM_2026,
-    author       = {Pouliliou, Stamatia and Drosatos, George},
-    title        = {AI-Driven Mapping of the Hypoxia--Metabolism--Immune Landscape in Glioblastoma: A BERTopic-Based Analysis of the Biomedical Literature},
-    keywords     = {Glioblastoma; BERTopic; Biomedical Literature Mining; Hypoxia; Metabolism; Tumor Microenvironment; Immunology; Treatment Resistance; BiomedBERT},
-    booktitle    = {GeNeDIS 2026},
-    series       = {Advances in Experimental Medicine and Biology (AEMB)},
-    volume       = {xxxx},
-    year         = {2026},
-    pages        = {1-15},
-    editor       = {Vlamos, Panagiotis},
-    publisher    = {Springer Nature Switzerland},
-    address      = {Cham, Switzerland},
-    doi          = {},
-    isbn         = {}
-}
-```
+## Licensing
 
-## License
-
-No open-source/content license has been assigned automatically. See [`docs/LICENSING.md`](docs/LICENSING.md) before public release.
+No blanket open-source/content license has been assigned. See [`docs/LICENSING.md`](docs/LICENSING.md) before public release.
