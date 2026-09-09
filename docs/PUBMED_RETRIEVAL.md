@@ -154,6 +154,24 @@ python scripts/pubmed_parser.py \
 The historical study dataset produced **55,446 parsed records with 55,446
 unique PMIDs**.
 
+## 8. Compare with the historical PMID manifest
+
+The repository includes the exact historical PMID set used in the study:
+
+```text
+data/manifests/retrieved_pmids_2026-08-27.txt
+```
+
+and the final modeling corpus:
+
+```text
+data/manifests/final_corpus_pmids.txt
+```
+
+The first contains **55,446 unique PMIDs** and the second **54,050 unique PMIDs**. The final set is a strict subset of the retrieval after the stated publication-type exclusions and removal of PMID 27454254.
+
+A future PubMed rerun may differ. In that case, retain the new retrieval unchanged and report the difference rather than forcing it to match the historical dataset. The supplied manifests preserve the exact record identities used in the original analysis.
+
 ## Automated helper
 
 The repository also includes:
