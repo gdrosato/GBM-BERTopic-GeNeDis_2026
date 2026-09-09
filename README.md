@@ -147,11 +147,29 @@ python tests/test_corpus_manifests.py
 
 ## Citation
 
-Final publication metadata will be added after acceptance/publication. Until then, the repository can be cited as:
+If you use this repo in a scientific publication, we would appreciate using the following citation:
 
-> Pouliliou S, Drosatos G. GBM-BERTopic-GeNeDis_2026: reproducibility repository for AI-driven mapping of hypoxia, metabolism, immunity, and treatment resistance in the glioblastoma literature. 2026.
+- Pouliliou, S. and Drosatos, G. (2026). AI-Driven Mapping of Hypoxia, Metabolism, Immunity, and Treatment Resistance in Glioblastoma: A BERTopic-Based Analysis of the Biomedical Literature. In GeNeDIS 2026, pages 1-15, AEMB Vol. xxxx, Springer.
 
-See `CITATION.cff` for machine-readable citation metadata.
+and as BibTeX:
+
+```
+@InProceedings{Pouliliou_GBM_2026,
+    author       = {Pouliliou, Stamatia and Drosatos, George},
+    title        = {AI-Driven Mapping of Hypoxia, Metabolism, Immunity, and Treatment Resistance in Glioblastoma: A BERTopic-Based Analysis of the Biomedical Literature},
+    keywords     = {Glioblastoma; BERTopic; Biomedical Literature Mining; Hypoxia; Metabolism; Tumor Microenvironment; Immunology; Treatment Resistance; BiomedBERT},
+    booktitle    = {GeNeDIS 2026},
+    series       = {Advances in Experimental Medicine and Biology (AEMB)},
+    volume       = {xxxx},
+    year         = {2026},
+    pages        = {1-15},
+    editor       = {Vlamos, Panagiotis},
+    publisher    = {Springer Nature Switzerland},
+    address      = {Cham, Switzerland},
+    doi          = {},
+    isbn         = {}
+}
+```
 
 ## Licensing
 
