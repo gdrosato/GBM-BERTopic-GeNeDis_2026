@@ -1,0 +1,4 @@
+("glioblastoma"[MeSH Terms] OR "glioblastoma"[Title/Abstract])
+AND ("2000/01/01"[Date - Publication] : "2026/08/27"[Date - Publication])
+AND hasabstract
+AND english[Language]

@@ -1,0 +1,65 @@
+study:
+  title: "AI-Driven Mapping of the Hypoxia–Metabolism–Immune Landscape in Glioblastoma"
+  analysis_date: "2026-09-09"
+
+pubmed:
+  retrieval_date: "2026-08-27"
+  start_date: "2000-01-01"
+  end_date: "2026-08-27"
+  returned_records: 55446
+  raw_export_distributed: false
+  raw_export_policy: "Not redistributed; recreate from the exact query."
+
+corpus:
+  after_publication_type_filtering: 54051
+  excluded_aggregate_pmid: "27454254"
+  final_documents: 54050
+  document_definition: "title + '. ' + abstract"
+
+embeddings:
+  model: "NeuML/biomedbert-base-embeddings"
+  dimensions: 768
+  max_sequence_length: 512
+  long_document_chunk_size: 480
+  long_document_chunk_overlap: 50
+  normalized: true
+
+bertopic:
+  umap:
+    n_neighbors: 15
+    n_components: 5
+    min_dist: 0.0
+    metric: "cosine"
+    random_state: 42
+  hdbscan_selected:
+    min_cluster_size: 100
+    min_samples: 2
+    metric: "euclidean"
+    cluster_selection_method: "eom"
+  vectorizer:
+    ngram_range: [1, 2]
+    stop_words: "english"
+    max_features: 30000
+  topics: 110
+  clustered_documents: 35188
+  outliers: 18862
+  outlier_percentage: 34.90
+
+validation:
+  candidate_topics: 77
+  strict_included: 41
+  borderline: 12
+  excluded: 24
+  coherence_mean: 4.73
+  coherence_median: 5.0
+  relevance_mean: 4.37
+  relevance_median: 4.0
+  relevance_ge_4: 38
+
+temporal_analysis:
+  primary_start_year: 2011
+  primary_end_year: 2025
+  denominator: "all eligible GBM publications per year, including HDBSCAN outliers"
+  visualization: "centered 3-year rolling mean"
+  inference: "Spearman correlation on unsmoothed annual prevalence"
+  correction: "Benjamini-Hochberg within each family of four tests"
