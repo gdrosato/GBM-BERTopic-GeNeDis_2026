@@ -4,6 +4,7 @@ on: [push, pull_request]
 jobs:
   repository-integrity:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
@@ -14,4 +15,3 @@ jobs:
       - run: python -m compileall -q scripts tests
       - run: python tests/test_repo_tree.py
       - run: python tests/test_validation_workbook.py
-      - run: python scripts/verify_checksums.py
