@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this analysis repository, please cite the associated GeNeDis 2026 study."
+title: "GBM BERTopic GeNeDis 2026 analysis repository"
+type: software
+authors:
+  - family-names: Drosatos
+    given-names: George
+  - family-names: Pouliliou
+    given-names: Stamatia
+version: 1.0.0
+date-released: 2026-09-09
+keywords:
+  - glioblastoma
+  - BERTopic
+  - biomedical literature mining
+  - hypoxia
+  - metabolism
+  - tumor microenvironment
+  - treatment resistance
