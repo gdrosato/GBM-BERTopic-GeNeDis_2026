@@ -1,0 +1,44 @@
+topic,n_documents,bertopic_name,expert_primary_label,expert_secondary_labels,coherence,relevance,axis
+25,393,25_mif_macrophages_tams_macrophage,Tumor microenvironment,,4.0,5.0,Immune / tumor microenvironment
+11,566,11_macrophages_microglia_tams_immune,Immune microenvironment,,5.0,5.0,Immune / tumor microenvironment
+16,492,16_metabolic_metabolism_metabolites_glucose,Metabolism,,4.0,4.0,Metabolism / stress
+52,221,52_immune_tregs_immunosuppressive_immunotherapy,Tumor microenvironment,Treatment resistance,5.0,5.0,Immune / tumor microenvironment
+52,221,52_immune_tregs_immunosuppressive_immunotherapy,Tumor microenvironment,Treatment resistance,5.0,5.0,Treatment resistance
+27,378,27_nk_nk cells_pd1_cd8,Tumor microenvironment,Treatment resistance,5.0,5.0,Immune / tumor microenvironment
+27,378,27_nk_nk cells_pd1_cd8,Tumor microenvironment,Treatment resistance,5.0,5.0,Treatment resistance
+18,439,18_ferroptosis_ern1_mitochondrial_autophagy,Metabolism,Cell death,5.0,5.0,Metabolism / stress
+79,143,79_hypoxia_hif1_ecm_hypoxic,Hypoxia,,5.0,5.0,Hypoxia / angiogenesis
+63,184,63_tmz resistance_tmz_chemosensitivity_lncrna,Treatment resistance,Therapeutic intervention,5.0,5.0,Treatment resistance
+95,114,95_hyperpolarized_mrs_lactate_13c,Metabolism,,5.0,5.0,Metabolism / stress
+106,106,106_exosomes_exosomal_polarization_mirs,Tumor microenvironment,,4.0,4.0,Immune / tumor microenvironment
+22,399,22_immunotherapy_checkpoint_checkpoint inhibitors_nivolumab,Therapeutic intervention,Immune microenvironment,4.0,4.0,Immune / tumor microenvironment
+56,212,56_vaccine_vaccination_vaccines_dendritic,Therapeutic intervention,Immune microenvironment,5.0,5.0,Immune / tumor microenvironment
+50,224,50_egfr_egfrviii_factor receptor_growth factor,Therapeutic intervention,Treatment resistance,5.0,5.0,Treatment resistance
+101,110,101_ddr_repair_dna damage_damage response,Treatment resistance,Therapeutic intervention,5.0,5.0,Treatment resistance
+1,1568,1_delivery_nanoparticles_nps_release,Therapeutic intervention,Treatment resistance,5.0,4.0,Treatment resistance
+34,343,34_bevacizumab_bev_irinotecan_recurrent glioblastoma,Therapeutic intervention,Metabolism; Hypoxia,5.0,4.0,Hypoxia / angiogenesis
+34,343,34_bevacizumab_bev_irinotecan_recurrent glioblastoma,Therapeutic intervention,Metabolism; Hypoxia,5.0,4.0,Metabolism / stress
+77,148,77_repair_dna_dsbs_radiosensitization,Treatment resistance,Metabolism,4.0,4.0,Metabolism / stress
+77,148,77_repair_dna_dsbs_radiosensitization,Treatment resistance,Metabolism,4.0,4.0,Treatment resistance
+3,1052,3_nanoparticles_photothermal_nps_oxide,Treatment resistance,Hypoxia; Metabolism,5.0,3.0,Hypoxia / angiogenesis
+3,1052,3_nanoparticles_photothermal_nps_oxide,Treatment resistance,Hypoxia; Metabolism,5.0,3.0,Metabolism / stress
+3,1052,3_nanoparticles_photothermal_nps_oxide,Treatment resistance,Hypoxia; Metabolism,5.0,3.0,Treatment resistance
+20,424,20_cq_inhibitor_autophagy_chloroquine,Treatment resistance,,5.0,5.0,Treatment resistance
+29,353,29_vegf_vascular_antiangiogenic_endothelial,Hypoxia,Therapeutic intervention,5.0,5.0,Hypoxia / angiogenesis
+28,360,28_mgmt_methylation_mgmt promoter_promoter methylation,Treatment resistance,Therapeutic intervention,5.0,4.0,Treatment resistance
+76,149,76_pdt_photodynamic_photodynamic therapy_therapy pdt,Therapeutic intervention,Treatment resistance,4.0,5.0,Treatment resistance
+80,143,80_mtor_rapamycin_mertk_pi3k,Therapeutic intervention,Treatment resistance,4.0,4.0,Treatment resistance
+17,479,17_integrin_angiogenesis_vegf_netrin1,Therapeutic intervention,Hypoxia,4.0,4.0,Hypoxia / angiogenesis
+26,385,26_phase_mtd_phase ii_mg,Treatment resistance,Therapeutic intervention,5.0,4.0,Treatment resistance
+96,114,96_molecular_biomarkers_genetic_molecular biomarkers,Treatment resistance,Therapeutic intervention; Metabolism,4.0,4.0,Metabolism / stress
+96,114,96_molecular_biomarkers_genetic_molecular biomarkers,Treatment resistance,Therapeutic intervention; Metabolism,4.0,4.0,Treatment resistance
+14,504,14_stem_stem cells_cancer stem_cscs,Treatment resistance,Immune microenvironment,5.0,5.0,Immune / tumor microenvironment
+14,504,14_stem_stem cells_cancer stem_cscs,Treatment resistance,Immune microenvironment,5.0,5.0,Treatment resistance
+35,330,35_evs_exosomes_vesicles_extracellular vesicles,Treatment resistance,Therapeutic intervention; Immune microenvironment,5.0,5.0,Immune / tumor microenvironment
+35,330,35_evs_exosomes_vesicles_extracellular vesicles,Treatment resistance,Therapeutic intervention; Immune microenvironment,5.0,5.0,Treatment resistance
+57,211,57_mscs_mesenchymal stem_msc_mesenchymal,Therapeutic intervention,Immune microenvironment,4.0,4.0,Immune / tumor microenvironment
+46,240,46_epigenetic_dna methylation_methylation_histone,Treatment resistance,Therapeutic intervention,5.0,4.0,Treatment resistance
+51,224,51_amplification_egfr_egfr amplification_egfrviii,Treatment resistance,Therapeutic intervention,5.0,4.0,Treatment resistance
+91,128,91_spatial_singlecell_spatial transcriptomics_heterogeneity,Tumor microenvironment,Hypoxia; Treatment resistance,5.0,5.0,Hypoxia / angiogenesis
+91,128,91_spatial_singlecell_spatial transcriptomics_heterogeneity,Tumor microenvironment,Hypoxia; Treatment resistance,5.0,5.0,Immune / tumor microenvironment
+91,128,91_spatial_singlecell_spatial transcriptomics_heterogeneity,Tumor microenvironment,Hypoxia; Treatment resistance,5.0,5.0,Treatment resistance
