@@ -4,7 +4,7 @@ Code, expert annotation, aggregate results, and figures supporting the study:
 
 **AI-Driven Mapping of the Hypoxia–Metabolism–Immune Landscape in Glioblastoma: A BERTopic-Based Analysis of the Biomedical Literature**
 
-Authors: **George Drosatos** and **Stamatia Pouliliou**
+Authors: **Stamatia Pouliliou** and **George Drosatos**
 
 ## Scope of this repository
 
