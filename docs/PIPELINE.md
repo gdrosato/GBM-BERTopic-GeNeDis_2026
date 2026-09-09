@@ -1,17 +1,21 @@
 # End-to-end analysis pipeline
 
-All Python files under `scripts/` were copied **unchanged** from the analysis server archive supplied on 2026-09-09.
-
 Several early scripts use fixed filenames and therefore should be executed from the project working directory.
 
-## 1. Obtain the PubMed export locally
+## 1. Recreate the PubMed XML locally
 
-Use the exact query in `config/pubmed_query.txt`.
+The raw PubMed XML is not distributed. Follow the complete EDirect instructions in [`PUBMED_RETRIEVAL.md`](PUBMED_RETRIEVAL.md), or run:
 
-Historical retrieval date: **2026-08-27**  
-Historical result count: **55,446 records**
+```bash
+bash scripts/download_pubmed_edirect.sh
+```
 
-Save the export locally as XML or XML.GZ. The raw file is deliberately excluded from Git.
+The helper reads the exact query from `config/pubmed_query.txt`, downloads compressed XML, and reports total and unique PMID counts.
+
+Historical study retrieval date: **2026-08-27**  
+Historical parsed XML dataset: **55,446 unique PMIDs**
+
+Because PubMed is a live database, a later reproduction run can differ slightly after retrospective indexing or record corrections. Record the rerun date and observed count.
 
 ## 2. Parse PubMed XML
 
@@ -113,7 +117,7 @@ Expected result:
 
 ## 10. Topic-validation workbook
 
-The server archive contains both the original and fixed scripts. The original `build_topic_validation.py` failed because it could create duplicate `topic` columns. The successful analysis used:
+Both the initial and corrected validation-workbook implementations are retained. The initial `build_topic_validation.py` could create duplicate `topic` columns. The successful analysis used:
 
 ```bash
 python scripts/build_topic_validation_fixed.py \
@@ -128,7 +132,7 @@ The final curated expert workbook distributed in this repository was subsequentl
 
 ```bash
 python scripts/make_final_figures_curated.py \
-  --validation-workbook data/validation/topic_validation_workbook_Tina_Currated_2026-09-09.xlsx \
+  --validation-workbook data/validation/topic_validation_workbook_2026-09-09.xlsx \
   --embeddings embeddings/biomedbert_embeddings.npy \
   --assignments bertopic_candidate_b/topic_assignments.parquet \
   --prevalence bertopic_candidate_b/topic_prevalence_by_year.csv \

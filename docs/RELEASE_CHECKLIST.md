@@ -1,6 +1,7 @@
 # Public release checklist
 
-- [x] All original server Python scripts included
+- [x] Complete Python analysis workflow included
+- [x] PubMed EDirect retrieval instructions included
 - [x] Exact environment export included
 - [x] Curated expert-validation workbook included
 - [x] Aggregate derived temporal/validation outputs included

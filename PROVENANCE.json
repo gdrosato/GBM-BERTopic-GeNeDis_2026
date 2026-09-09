@@ -1,25 +1,27 @@
 {
   "repository_version": "1.0.0",
   "assembled_on": "2026-09-09",
-  "canonical_script_source": "server_python_scripts.zip supplied by the author",
   "scripts_copied_unchanged": true,
   "script_sha256": {
-    "pubmed_parser.py": "2ab94de783bf15bececb4942652f23d142277e85bbda5ced8ad935646baada59",
-    "dataset_qc.py": "9d3a94ed2c07074b3cc594776a4d2fc2586694d3d3fe6270de0414b1c4db5b8c",
-    "prepare_corpus.py": "8980b013383829dda790a4e917c895b269eeb3d62722b4fc97ad140f1eb65a0c",
-    "token_length_analysis.py": "ca90b3992c05f30bfa55ae38b9aca5b72d0fac30b2815d943ad968fa263f8a54",
-    "generate_embeddings.py": "991cba06ce749e045d32eea9a01b923e080c6a211132d114744cc6ad88c62ac4",
-    "run_bertopic_baseline.py": "1f33e42dac7bfe4246c2c2781bd6b97d3ebb06edcdfcf3942c6dd35467962956",
-    "tune_hdbscan.py": "ae9d00bdc86a5bd788ea8f6cb5ca3a1af58f23b43da543bf795453e1f4981c27",
-    "run_bertopic_candidate_b.py": "509cdd9b7af0959d0f76a9a2605b3bf4abbfa71f1356d7871caaec4230a30fc4",
     "build_topic_validation.py": "6a0540609c31342a2f7655c2740282f7c0787dc45c92dd482c56b7fa7bffa59f",
     "build_topic_validation_fixed.py": "12a18aef13fa5fef450aab72bfadd88bfd130bdac17a065365f572dad33d8ea2",
-    "make_final_figures_curated.py": "bb915cbf33d33b23cc78127d1af7da7f8b7be8b8a9637f57851df33129de9d8f"
+    "dataset_qc.py": "9d3a94ed2c07074b3cc594776a4d2fc2586694d3d3fe6270de0414b1c4db5b8c",
+    "download_pubmed_edirect.sh": "47291ed060b6e7d317e1b2579904edf1b587f92a7e88ab679e83c84113a95b71",
+    "generate_embeddings.py": "991cba06ce749e045d32eea9a01b923e080c6a211132d114744cc6ad88c62ac4",
+    "make_final_figures_curated.py": "bdd2c2e2574a5db1edfb8d1b1f1bfdae920307d9ae699afaba4596cc766feb67",
+    "prepare_corpus.py": "8980b013383829dda790a4e917c895b269eeb3d62722b4fc97ad140f1eb65a0c",
+    "pubmed_parser.py": "2ab94de783bf15bececb4942652f23d142277e85bbda5ced8ad935646baada59",
+    "run_bertopic_baseline.py": "1f33e42dac7bfe4246c2c2781bd6b97d3ebb06edcdfcf3942c6dd35467962956",
+    "run_bertopic_candidate_b.py": "509cdd9b7af0959d0f76a9a2605b3bf4abbfa71f1356d7871caaec4230a30fc4",
+    "token_length_analysis.py": "ca90b3992c05f30bfa55ae38b9aca5b72d0fac30b2815d943ad968fa263f8a54",
+    "tune_hdbscan.py": "ae9d00bdc86a5bd788ea8f6cb5ca3a1af58f23b43da543bf795453e1f4981c27",
+    "verify_checksums.py": "60d6cea9be48709fcceff100c2970078993314e75764cdd0166294a9d501c952"
   },
-  "environment_source": "direct export from the analysis server",
+  "environment_source": "exact exported analysis environment snapshot",
   "raw_pubmed_export_included": false,
   "raw_pubmed_export_excluded_by_design": true,
   "manuscript_files_included": false,
   "manuscript_files_excluded_by_design": true,
-  "validation_workbook": "topic_validation_workbook_Tina_Currated_2026-09-09.xlsx"
+  "validation_workbook": "topic_validation_workbook_2026-09-09.xlsx",
+  "script_set": "analysis workflow scripts included in this repository"
 }

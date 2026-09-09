@@ -10,7 +10,7 @@ Authors: **Stamatia Pouliliou** and **George Drosatos**
 
 This public repository intentionally contains:
 
-- the **original Python scripts from the analysis server**;
+- the Python scripts used in the analysis workflow;
 - the exact PubMed query and analysis parameters;
 - the exact Python/package/runtime environment export;
 - the curated domain-expert topic-validation workbook;
@@ -28,7 +28,7 @@ This separation keeps the repository focused on reproducible analysis code and a
 
 ## Key results
 
-- PubMed records retrieved on 2026-08-27: **55,446**
+- PubMed XML records used in the analysis: **55,446 unique PMIDs**
 - Final modeling corpus: **54,050 publications**
 - Biomedical embedding dimensionality: **768**
 - BERTopic topics: **110**
@@ -42,7 +42,7 @@ This separation keeps the repository focused on reproducible analysis code and a
 ```text
 .
 ├── config/                 Exact PubMed query and model parameters
-├── scripts/                Original analysis-server Python scripts
+├── scripts/                Analysis and data-retrieval scripts
 ├── environment/            Exact Python/pip/runtime snapshot
 ├── data/
 │   ├── raw/                Documentation only; no raw PubMed data committed
@@ -56,7 +56,7 @@ This separation keeps the repository focused on reproducible analysis code and a
 
 ## Environment
 
-The exact server environment is archived under `environment/`.
+The exact analysis environment snapshot is provided under `environment/`.
 
 Core runtime:
 
@@ -74,11 +74,17 @@ For the complete package snapshot see `environment/pip_freeze.txt`.
 
 ## Reproducing the analysis
 
-The repository does not redistribute the raw PubMed export. Recreate/download a PubMed export using the exact query in:
+The repository does not redistribute the raw PubMed export. Recreate it locally with the exact study query and NCBI EDirect. Full installation, API-key, download, compression, and PMID-verification instructions are provided in:
 
-`config/pubmed_query.txt`
+[`docs/PUBMED_RETRIEVAL.md`](docs/PUBMED_RETRIEVAL.md)
 
-The historical retrieval date was **2026-08-27** and returned **55,446** records.
+For an automated download using the repository query:
+
+```bash
+bash scripts/download_pubmed_edirect.sh
+```
+
+The historical XML dataset used for analysis contained **55,446 unique PMIDs**. PubMed is a live database, so later reruns may differ slightly because of retrospective record/indexing changes.
 
 Then follow [`docs/PIPELINE.md`](docs/PIPELINE.md).
 

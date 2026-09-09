@@ -2,7 +2,7 @@
 
 ## Exact environment
 
-The server environment is archived in `environment/` rather than reconstructed from memory.
+The exact analysis environment snapshot is provided in `environment/`.
 
 - Python 3.12.3
 - Linux 6.8.0-138-generic x86_64, glibc 2.39

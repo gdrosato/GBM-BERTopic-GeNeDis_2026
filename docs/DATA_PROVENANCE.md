@@ -18,7 +18,7 @@ One PubMed publication represented by title plus abstract.
 
 The final curated expert-validation workbook is preserved unchanged at:
 
-`data/validation/topic_validation_workbook_Tina_Currated_2026-09-09.xlsx`
+`data/validation/topic_validation_workbook_2026-09-09.xlsx`
 
 This workbook is the source of truth for downstream strict inclusion and expert labels.
 

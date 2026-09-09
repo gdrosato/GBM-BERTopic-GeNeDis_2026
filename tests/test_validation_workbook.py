@@ -1,7 +1,7 @@
 from pathlib import Path
 import pandas as pd
 
-p = Path('data/validation/topic_validation_workbook_Tina_Currated_2026-09-09.xlsx')
+p = Path('data/validation/topic_validation_workbook_2026-09-09.xlsx')
 df = pd.read_excel(p, sheet_name='Expert Annotation')
 assert len(df) == 77
 assert df['topic'].nunique() == 77

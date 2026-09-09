@@ -1,6 +1,6 @@
 # Script provenance and roles
 
-All scripts in this repository were taken directly from the server archive `server_python_scripts.zip` supplied on 2026-09-09 and are preserved unchanged.
+The repository contains the Python scripts used across the analysis workflow. The initial and corrected validation-workbook implementations are both retained for transparency.
 
 | Script | Role | Used in final workflow? |
 |---|---|---|
