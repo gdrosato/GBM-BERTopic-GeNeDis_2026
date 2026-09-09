@@ -1,12 +1,7 @@
 # Licensing
 
-No license has been assigned automatically because the repository contains multiple classes of material:
+This repository is provided for academic, research, and reproducibility purposes.
 
-- original analysis code;
-- author-generated expert annotations;
-- aggregate derived results;
-- figures derived from the analysis.
+Unless otherwise stated, the analysis code, expert annotations, derived results, and figures remain the intellectual property of their respective authors. Please contact the authors before redistributing or reusing these materials beyond normal academic citation and reproducibility use.
 
-Before public release, the authors should choose the intended reuse terms. For example, code could be released under MIT/BSD/Apache-2.0 and author-generated data/figures under a Creative Commons license, if both authors agree.
-
-The repository deliberately does not contain PubMed abstracts or Springer manuscript/template files.
+The repository does not redistribute PubMed abstracts, raw PubMed records, or publisher-provided manuscript/template files.
