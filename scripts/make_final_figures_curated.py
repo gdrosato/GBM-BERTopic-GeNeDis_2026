@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
 """
 Generate publication figures and temporal summaries for the GeNeDis 2026
-glioblastoma BERTopic manuscript using the CURATED expert-validation workbook.
+glioblastoma BERTopic manuscript using the CURATED expert-annotation workbook.
 
-The validation workbook is the source-of-truth. No hard-coded list of all
+The curated workbook is the source-of-truth. No hard-coded list of all
 included topics is required.
 
 Main outputs
 ------------
 1. figure_topic_landscape.pdf/png
    A separate 2D UMAP visualization for presentation only. All documents are
-   shown in the background; documents in strict expert-included topics are
-   highlighted by curated expert primary category.
+   shown in the background; documents in expert-retained topics are highlighted by curated expert
+   primary category.
 
-2. figure_temporal_core_axes.pdf/png
-   2011-2025 normalized prevalence of four NON-MUTUALLY-EXCLUSIVE biological
-   axes derived from expert primary + secondary labels:
+2. figure_temporal_axes_primary.pdf/png
+   2011-2025 normalized prevalence of four primary-label biological axes:
        Hypoxia / angiogenesis
        Metabolism / stress
        Immune / tumor microenvironment
@@ -39,9 +38,9 @@ Tabular outputs
 ---------------
 validated_topics_strict.csv
 validation_summary.csv
-axis_topic_membership.csv
-core_axis_prevalence_annual.csv
-temporal_axis_trend_stats.csv
+primary_axis_membership.csv
+primary_axis_prevalence_annual.csv
+primary_axis_trend_stats.csv
 sentinel_topic_prevalence_annual.csv
 
 Expected analysis inputs
@@ -54,11 +53,11 @@ bertopic_candidate_b/outliers_by_year.csv
 
 Notes
 -----
-- "Strict included" means expert_include == "Yes".
+- "Expert-retained" means expert_include == "Yes".
 - Borderline topics are not used in the main biological temporal analysis.
-- Core biological axes are allowed to overlap conceptually. A topic can
-  contribute to more than one axis if the expert primary/secondary labels
-  support multiple axes. Therefore axis lines are NOT intended to sum to 100%.
+- Primary biological axes are defined from expert primary labels only.
+  The broader primary-plus-secondary definition is evaluated separately by
+  axis_definition_sensitivity.py.
 - The 2D UMAP is generated separately for visualization. The clustering model
   itself remains based on the previously fixed 5D UMAP representation.
 """
@@ -228,25 +227,20 @@ def topic_label_set(row):
 
 
 def assign_core_axes(strict):
+    """Assign retained topics to primary biological axes using primary labels only."""
     rows = []
 
     for _, row in strict.iterrows():
-        labels = topic_label_set(row)
+        primary = clean_label(row["expert_primary_label"])
         axes = []
 
-        if "Hypoxia" in labels:
+        if primary == "Hypoxia":
             axes.append("Hypoxia / angiogenesis")
-
-        if "Metabolism" in labels:
+        elif primary == "Metabolism":
             axes.append("Metabolism / stress")
-
-        if (
-            "Tumor microenvironment" in labels
-            or "Immune microenvironment" in labels
-        ):
+        elif primary in {"Tumor microenvironment", "Immune microenvironment"}:
             axes.append("Immune / tumor microenvironment")
-
-        if "Treatment resistance" in labels:
+        elif primary == "Treatment resistance":
             axes.append("Treatment resistance")
 
         for axis in axes:
@@ -280,7 +274,7 @@ def save_validation_summaries(all_validation, strict, axis_membership, outdir):
         index=False,
     )
     axis_membership.to_csv(
-        outdir / "axis_topic_membership.csv",
+        outdir / "primary_axis_membership.csv",
         index=False,
     )
 
@@ -357,7 +351,7 @@ def save_validation_summaries(all_validation, strict, axis_membership, outdir):
     pd.DataFrame(
         [
             {"metric": "Candidate topics", "value": len(all_validation)},
-            {"metric": "Strict included (Yes)", "value": len(strict)},
+            {"metric": "Retained (Yes)", "value": len(strict)},
             {"metric": "Borderline", "value": status_counts["Borderline"]},
             {"metric": "Excluded (No)", "value": status_counts["No"]},
             {
@@ -615,7 +609,7 @@ def plot_topic_landscape(assignments, coords, strict, outdir):
 
     ax.set_title(
         "Semantic landscape of the glioblastoma literature\n"
-        "with strict expert-included topics highlighted"
+        "with expert-retained topics highlighted"
     )
     ax.set_xlabel("UMAP dimension 1")
     ax.set_ylabel("UMAP dimension 2")
@@ -919,17 +913,21 @@ def plot_temporal_axes(axis_annual, outdir):
             .sort_values("publication_year")
         )
 
+        ax.scatter(
+            g["publication_year"],
+            g["axis_prevalence_percent"],
+            s=18,
+            alpha=0.45,
+        )
         ax.plot(
             g["publication_year"],
             g["rolling_3y_percent"],
-            marker="o",
-            markersize=3,
             linewidth=1.8,
             label=axis,
         )
 
     ax.set_title(
-        "Normalized prevalence of expert-validated biological axes, 2011-2025"
+        "Normalized prevalence of primary-label biological axes, 2011-2025"
     )
     ax.set_xlabel("Publication year")
     ax.set_ylabel("Share of all eligible GBM publications (%)")
@@ -940,6 +938,7 @@ def plot_temporal_axes(axis_annual, outdir):
             2,
         )
     )
+    ax.set_ylim(bottom=0)
     ax.legend(frameon=False, fontsize=8)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
@@ -947,11 +946,11 @@ def plot_temporal_axes(axis_annual, outdir):
     fig.tight_layout()
 
     fig.savefig(
-        outdir / "figure_temporal_core_axes.pdf",
+        outdir / "figure_temporal_axes_primary.pdf",
         bbox_inches="tight",
     )
     fig.savefig(
-        outdir / "figure_temporal_core_axes.png",
+        outdir / "figure_temporal_axes_primary.png",
         dpi=300,
         bbox_inches="tight",
     )
@@ -1059,7 +1058,7 @@ def plot_sentinel_topics(sentinel, outdir):
         )
 
     ax.set_title(
-        "Temporal trajectories of sentinel expert-validated GBM topics, 2011-2025"
+        "Temporal trajectories of sentinel expert-curated GBM topics, 2011-2025"
     )
     ax.set_xlabel("Publication year")
     ax.set_ylabel("Share of all eligible GBM publications (%)")
@@ -1167,7 +1166,7 @@ def main():
 
     print("\n=== CURATED VALIDATION QC ===")
     print(f"Candidate topics:       {summary['n_candidates']}")
-    print(f"Strict included:        {summary['n_strict_included']}")
+    print(f"Expert-retained:       {summary['n_strict_included']}")
     print(f"Borderline:             {summary['n_borderline']}")
     print(f"Excluded:               {summary['n_excluded']}")
     print(
@@ -1231,7 +1230,7 @@ def main():
         )
 
         axis_annual.to_csv(
-            args.output_dir / "core_axis_prevalence_annual.csv",
+            args.output_dir / "primary_axis_prevalence_annual.csv",
             index=False,
         )
 
@@ -1240,7 +1239,7 @@ def main():
         )
 
         trend_stats.to_csv(
-            args.output_dir / "temporal_axis_trend_stats.csv",
+            args.output_dir / "primary_axis_trend_stats.csv",
             index=False,
         )
 
