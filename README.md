@@ -112,7 +112,7 @@ python scripts/verify_checksums.py
 
 If you use this repo in a scientific publication, we would appreciate using the following citation:
 
-- Pouliliou, S. and Drosatos, G. (2026). AI-Driven Mapping of the Hypoxia--Metabolism--Immune Landscape in Glioblastoma: A BERTopic-Based Analysis of the Biomedical Literature. In GeNeDIS 2026, pages 1-14, AEMB Vol. xxxx, Springer.
+- Pouliliou, S. and Drosatos, G. (2026). AI-Driven Mapping of the Hypoxia--Metabolism--Immune Landscape in Glioblastoma: A BERTopic-Based Analysis of the Biomedical Literature. In GeNeDIS 2026, pages 1-15, AEMB Vol. xxxx, Springer.
 
 and as BibTeX:
 
@@ -125,7 +125,7 @@ and as BibTeX:
     series       = {Advances in Experimental Medicine and Biology (AEMB)},
     volume       = {xxxx},
     year         = {2026},
-    pages        = {1-14},
+    pages        = {1-15},
     editor       = {Vlamos, Panagiotis},
     publisher    = {Springer Nature Switzerland},
     address      = {Cham, Switzerland},
