@@ -67,3 +67,7 @@ documents_over_512_tokens.csv
 *.env
 .ncbi_api_key
 secrets/
+
+# Local release-stage sensitivity output directories
+axis_definition_sensitivity/
+clustered_denominator_sensitivity/
