@@ -1,0 +1,5 @@
+axis,n_axis_topics,all_gbm_rho,all_gbm_q_bh,all_gbm_interpretation,clustered_rho,clustered_q_bh,clustered_interpretation,same_rho_sign,same_significance_status,robust_direction_and_significance
+Hypoxia / angiogenesis,2,-0.8142857142857142,0.00029248777030280263,significant decrease,-0.8142857142857142,0.00029248777030280263,significant decrease,True,True,True
+Metabolism / stress,3,0.8428571428571429,0.0001593439050544972,significant increase,0.8535714285714284,0.00010346287133419537,significant increase,True,True,True
+Immune / tumor microenvironment,6,0.8678571428571429,0.00011007225582051686,significant increase,0.8714285714285712,9.294591128653047e-05,significant increase,True,True,True
+Treatment resistance,12,-0.4428571428571427,0.0982940655468714,"negative, non-significant",-0.5,0.05769884126895998,"negative, non-significant",True,True,True

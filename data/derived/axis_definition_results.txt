@@ -1,0 +1,20 @@
+PRIMARY ANALYSIS: EXPERT PRIMARY LABELS ONLY
+====================================================
+Hypoxia / angiogenesis: topics=2; 2011=1.448%; 2025=0.784%; rho=-0.8143; p=0.00021937; BH q=0.00029249; significant decrease
+Metabolism / stress: topics=3; 2011=1.738%; 2025=2.884%; rho=0.8429; p=7.9672e-05; BH q=0.00015934; significant increase
+Immune / tumor microenvironment: topics=6; 2011=2.462%; 2025=4.591%; rho=0.8679; p=2.7518e-05; BH q=0.00011007; significant increase
+Treatment resistance: topics=12; 2011=8.472%; 2025=7.359%; rho=-0.4429; p=0.098294; BH q=0.098294; negative, non-significant
+
+SENSITIVITY ANALYSIS: PRIMARY + SECONDARY LABELS
+======================================================
+Hypoxia / angiogenesis: topics=6; 2011=5.938%; 2025=5.144%; rho=-0.6607; p=0.0073306; BH q=0.014661; significant decrease
+Metabolism / stress: topics=7; 2011=5.720%; 2025=6.736%; rho=0.4036; p=0.13577; BH q=0.18102; positive, non-significant
+Immune / tumor microenvironment: topics=11; 2011=6.010%; 2025=7.382%; rho=0.8679; p=2.7518e-05; BH q=0.00011007; significant increase
+Treatment resistance: topics=19; 2011=13.686%; 2025=14.233%; rho=0.3536; p=0.19607; BH q=0.19607; positive, non-significant
+
+ROBUSTNESS
+==========
+Hypoxia / angiogenesis: primary=[significant decrease], expanded=[significant decrease], same rho sign=True, same significance status=True
+Metabolism / stress: primary=[significant increase], expanded=[positive, non-significant], same rho sign=True, same significance status=False
+Immune / tumor microenvironment: primary=[significant increase], expanded=[significant increase], same rho sign=True, same significance status=True
+Treatment resistance: primary=[negative, non-significant], expanded=[positive, non-significant], same rho sign=False, same significance status=True

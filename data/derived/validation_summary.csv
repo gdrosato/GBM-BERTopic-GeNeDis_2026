@@ -1,6 +1,6 @@
 metric,value
 Candidate topics,77.0
-Strict included (Yes),41.0
+Retained (Yes),41.0
 Borderline,12.0
 Excluded (No),24.0
 Mean biological coherence,4.7317073170731705

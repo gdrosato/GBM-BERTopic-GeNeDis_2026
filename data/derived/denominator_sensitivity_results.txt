@@ -1,0 +1,28 @@
+CLUSTERED-ONLY DENOMINATOR SENSITIVITY
+=======================================
+
+Hypoxia / angiogenesis
+  All-GBM denominator: 1.4482% -> 0.7843%; rho=-0.8143; p=0.000219366; BH q=0.000292488; significant decrease
+  Clustered-only denominator: 2.1786% -> 1.1765%; rho=-0.8143; p=0.000219366; BH q=0.000292488; significant decrease
+  Same sign: True; same significance status: True
+
+Metabolism / stress
+  All-GBM denominator: 1.7379% -> 2.8835%; rho=0.8429; p=7.9672e-05; BH q=0.000159344; significant increase
+  Clustered-only denominator: 2.6144% -> 4.3253%; rho=0.8536; p=5.17314e-05; BH q=0.000103463; significant increase
+  Same sign: True; same significance status: True
+
+Immune / tumor microenvironment
+  All-GBM denominator: 2.4620% -> 4.5905%; rho=0.8679; p=2.75181e-05; BH q=0.000110072; significant increase
+  Clustered-only denominator: 3.7037% -> 6.8858%; rho=0.8714; p=2.32365e-05; BH q=9.29459e-05; significant increase
+  Same sign: True; same significance status: True
+
+Treatment resistance
+  All-GBM denominator: 8.4721% -> 7.3587%; rho=-0.4429; p=0.0982941; BH q=0.0982941; negative, non-significant
+  Clustered-only denominator: 12.7451% -> 11.0381%; rho=-0.5000; p=0.0576988; BH q=0.0576988; negative, non-significant
+  Same sign: True; same significance status: True
+
+OVERALL
+=======
+All four axes preserve trend direction: True
+All four axes preserve significance/non-significance status: True
+Suggested manuscript sentence: "Temporal directions and inferential interpretations were unchanged when prevalence was normalized to clustered publications only."

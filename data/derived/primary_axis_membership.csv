@@ -1,0 +1,24 @@
+topic,n_documents,bertopic_name,expert_primary_label,expert_secondary_labels,axis,definition
+25,393,25_mif_macrophages_tams_macrophage,Tumor microenvironment,,Immune / tumor microenvironment,primary_only
+11,566,11_macrophages_microglia_tams_immune,Immune microenvironment,,Immune / tumor microenvironment,primary_only
+16,492,16_metabolic_metabolism_metabolites_glucose,Metabolism,,Metabolism / stress,primary_only
+52,221,52_immune_tregs_immunosuppressive_immunotherapy,Tumor microenvironment,Treatment resistance,Immune / tumor microenvironment,primary_only
+27,378,27_nk_nk cells_pd1_cd8,Tumor microenvironment,Treatment resistance,Immune / tumor microenvironment,primary_only
+18,439,18_ferroptosis_ern1_mitochondrial_autophagy,Metabolism,Cell death,Metabolism / stress,primary_only
+79,143,79_hypoxia_hif1_ecm_hypoxic,Hypoxia,,Hypoxia / angiogenesis,primary_only
+63,184,63_tmz resistance_tmz_chemosensitivity_lncrna,Treatment resistance,Therapeutic intervention,Treatment resistance,primary_only
+95,114,95_hyperpolarized_mrs_lactate_13c,Metabolism,,Metabolism / stress,primary_only
+106,106,106_exosomes_exosomal_polarization_mirs,Tumor microenvironment,,Immune / tumor microenvironment,primary_only
+101,110,101_ddr_repair_dna damage_damage response,Treatment resistance,Therapeutic intervention,Treatment resistance,primary_only
+77,148,77_repair_dna_dsbs_radiosensitization,Treatment resistance,Metabolism,Treatment resistance,primary_only
+3,1052,3_nanoparticles_photothermal_nps_oxide,Treatment resistance,Hypoxia; Metabolism,Treatment resistance,primary_only
+20,424,20_cq_inhibitor_autophagy_chloroquine,Treatment resistance,,Treatment resistance,primary_only
+29,353,29_vegf_vascular_antiangiogenic_endothelial,Hypoxia,Therapeutic intervention,Hypoxia / angiogenesis,primary_only
+28,360,28_mgmt_methylation_mgmt promoter_promoter methylation,Treatment resistance,Therapeutic intervention,Treatment resistance,primary_only
+26,385,26_phase_mtd_phase ii_mg,Treatment resistance,Therapeutic intervention,Treatment resistance,primary_only
+96,114,96_molecular_biomarkers_genetic_molecular biomarkers,Treatment resistance,Therapeutic intervention; Metabolism,Treatment resistance,primary_only
+14,504,14_stem_stem cells_cancer stem_cscs,Treatment resistance,Immune microenvironment,Treatment resistance,primary_only
+35,330,35_evs_exosomes_vesicles_extracellular vesicles,Treatment resistance,Therapeutic intervention; Immune microenvironment,Treatment resistance,primary_only
+46,240,46_epigenetic_dna methylation_methylation_histone,Treatment resistance,Therapeutic intervention,Treatment resistance,primary_only
+51,224,51_amplification_egfr_egfr amplification_egfrviii,Treatment resistance,Therapeutic intervention,Treatment resistance,primary_only
+91,128,91_spatial_singlecell_spatial transcriptomics_heterogeneity,Tumor microenvironment,Hypoxia; Treatment resistance,Immune / tumor microenvironment,primary_only
