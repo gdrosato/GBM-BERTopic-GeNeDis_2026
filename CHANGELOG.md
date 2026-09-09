@@ -1,12 +1,12 @@
 # Changelog
 
-## v1.2.0 — 2026-09-09
+## v1.2.0 — 2026-09-09 15:34 CET
 
 - Added PMID-only manifests identifying the exact 55,446-record historical PubMed retrieval and 54,050-document final modeling corpus.
 - Added manifest provenance, SHA-256 fingerprints, and a corpus-manifest integrity test.
 - Updated README, data policy, provenance, retrieval, pipeline, reproducibility, and release documentation to distinguish reproducible PubMed retrieval from exact historical corpus identity.
 
-## v1.1.0 — 2026-09-09
+## v1.1.0 — 2026-09-09 15:23 CET
 
 - Updated the release workflow to use expert **primary labels only** for the main four-axis temporal analysis.
 - Added axis-definition sensitivity analysis comparing primary labels with primary + secondary labels.
@@ -18,7 +18,7 @@
 - Updated documentation, codebook, CI tests, and citation metadata to match the final analysis.
 - Removed the obsolete checksum-verification step from repository maintenance.
 
-## v1.0.0 — 2026-09-09
+## v1.0.0 — 2026-09-09 10:38 CET
 
 - Added the complete Python analysis workflow, including an EDirect retrieval helper.
 - Added exact Python/package/runtime environment snapshot.
