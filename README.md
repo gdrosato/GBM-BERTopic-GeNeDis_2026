@@ -6,8 +6,6 @@ Code, expert curation, aggregate results, and figures supporting the study:
 
 Authors: **Stamatia Pouliliou** and **George Drosatos**
 
-The repository is maintained privately during manuscript review and is intended for public release following acceptance.
-
 ## Scope
 
 This repository contains:
@@ -25,8 +23,7 @@ It intentionally **does not contain**:
 
 - the PubMed XML/XML.GZ export or article abstracts;
 - parsed title–abstract corpora or embedding matrices;
-- BERTopic/UMAP/HDBSCAN model binaries;
-- manuscript source, LaTeX, BibTeX, or compiled manuscript PDF.
+- BERTopic/UMAP/HDBSCAN model binaries.
 
 ## Key results
 
