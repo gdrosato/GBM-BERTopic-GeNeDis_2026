@@ -1,21 +1,28 @@
 {
-  "repository_version": "1.0.0",
+  "repository_version": "1.2.0",
   "assembled_on": "2026-09-09",
-  "scripts_copied_unchanged": true,
+  "release_stage": "private manuscript-review repository; intended for public release after acceptance",
+  "scripts_copied_unchanged": false,
+  "release_stage_script_changes": [
+    "make_final_figures_curated.py updated to use expert primary labels for the main temporal axes and final figure terminology",
+    "axis_definition_sensitivity.py added",
+    "clustered_denominator_sensitivity.py added"
+  ],
   "script_sha256": {
+    "axis_definition_sensitivity.py": "e5c54646cd7bcc4dd589da7f3c24cdf2d9c30acd185ee45b8f327dda5d32471d",
     "build_topic_validation.py": "6a0540609c31342a2f7655c2740282f7c0787dc45c92dd482c56b7fa7bffa59f",
     "build_topic_validation_fixed.py": "12a18aef13fa5fef450aab72bfadd88bfd130bdac17a065365f572dad33d8ea2",
+    "clustered_denominator_sensitivity.py": "02795c872ded185b5d523bd69a2f195e2b7353d876a4353adac46dfa2e716199",
     "dataset_qc.py": "9d3a94ed2c07074b3cc594776a4d2fc2586694d3d3fe6270de0414b1c4db5b8c",
     "download_pubmed_edirect.sh": "47291ed060b6e7d317e1b2579904edf1b587f92a7e88ab679e83c84113a95b71",
     "generate_embeddings.py": "991cba06ce749e045d32eea9a01b923e080c6a211132d114744cc6ad88c62ac4",
-    "make_final_figures_curated.py": "bdd2c2e2574a5db1edfb8d1b1f1bfdae920307d9ae699afaba4596cc766feb67",
+    "make_final_figures_curated.py": "3723feb64b76c76ec4effd76d5a5106219a823453e40b47f1c72c752d3179dc6",
     "prepare_corpus.py": "8980b013383829dda790a4e917c895b269eeb3d62722b4fc97ad140f1eb65a0c",
     "pubmed_parser.py": "2ab94de783bf15bececb4942652f23d142277e85bbda5ced8ad935646baada59",
     "run_bertopic_baseline.py": "1f33e42dac7bfe4246c2c2781bd6b97d3ebb06edcdfcf3942c6dd35467962956",
     "run_bertopic_candidate_b.py": "509cdd9b7af0959d0f76a9a2605b3bf4abbfa71f1356d7871caaec4230a30fc4",
     "token_length_analysis.py": "ca90b3992c05f30bfa55ae38b9aca5b72d0fac30b2815d943ad968fa263f8a54",
-    "tune_hdbscan.py": "ae9d00bdc86a5bd788ea8f6cb5ca3a1af58f23b43da543bf795453e1f4981c27",
-    "verify_checksums.py": "60d6cea9be48709fcceff100c2970078993314e75764cdd0166294a9d501c952"
+    "tune_hdbscan.py": "ae9d00bdc86a5bd788ea8f6cb5ca3a1af58f23b43da543bf795453e1f4981c27"
   },
   "environment_source": "exact exported analysis environment snapshot",
   "raw_pubmed_export_included": false,
@@ -23,5 +30,31 @@
   "manuscript_files_included": false,
   "manuscript_files_excluded_by_design": true,
   "validation_workbook": "topic_validation_workbook_2026-09-09.xlsx",
-  "script_set": "analysis workflow scripts included in this repository"
+  "primary_axis_definition": "expert primary label only",
+  "sensitivity_analyses": [
+    "primary versus primary+secondary axis labels",
+    "all-GBM versus clustered-only annual denominator"
+  ],
+  "main_figures": [
+    "figure_topic_landscape.pdf",
+    "figure_temporal_axes_primary.pdf"
+  ],
+  "corpus_manifests": {
+    "retrieved": {
+      "path": "data/manifests/retrieved_pmids_2026-08-27.txt",
+      "count": 55446,
+      "unique_count": 55446,
+      "sha256": "f2f8b539be9d12770ccb4ed165a6c51fdc01d90b1570372944c8d703594595af",
+      "retrieval_date": "2026-08-27"
+    },
+    "final_modeling_corpus": {
+      "path": "data/manifests/final_corpus_pmids.txt",
+      "count": 54050,
+      "unique_count": 54050,
+      "sha256": "63a5e13b776d3feec910f53ba8ada171495fc25db887087386726b28bca9648d"
+    },
+    "final_is_subset_of_retrieved": true,
+    "retrieved_minus_final_count": 1396,
+    "aggregate_record_excluded_from_final": "27454254"
+  }
 }
